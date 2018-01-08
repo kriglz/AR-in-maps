@@ -12,7 +12,7 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager = CLLocationManager()
 
     @IBOutlet weak var currentLocationButton: UIButton!
     
@@ -24,29 +24,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.showsUserLocation = true
         mapView.showsCompass = true
 
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
+        locationManager.delegate = self
         
         updateButtonShadow()
         
-        if let locationManager = locationManager {
-            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                locationManager.startUpdatingLocation()
-                currentLocationButton.isHidden = false
-            } else {
-                let alert = UIAlertController(title: "Alert", message: "Failed to initialize GPS.\nPlease enable location access in Settings -> AR-in-maps -> Location", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-                    switch action.style {
-                    case .default:
-                        print("default")
-                    case .cancel:
-                        print("cancel")
-                    case .destructive:
-                        print("destructive")
-                    }}))
-                self.present(alert, animated: true, completion: nil)
-                currentLocationButton.isHidden = true
-            }
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+            currentLocationButton.isHidden = false
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Failed to initialize GPS.\nPlease enable location access in Settings -> AR-in-maps -> Location", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                switch action.style {
+                case .default:
+                    print("default")
+                case .cancel:
+                    print("cancel")
+                case .destructive:
+                    print("destructive")
+                }}))
+            self.present(alert, animated: true, completion: nil)
+            currentLocationButton.isHidden = true
         }
     }
     
@@ -60,11 +57,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func updateCurrentLocation(_ sender: Any) {
-        
-        if let myLocation = myLocation {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(myLocation, 500, 500)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
+        locationManager.startUpdatingLocation()
     }
     
     
@@ -80,9 +73,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             print("AuthorizedAlways")
         case .authorizedWhenInUse:
             print("AuthorizedWhenInUse")
-            if let locationManager = locationManager {
-                locationManager.startUpdatingLocation()
-            }
+            locationManager.startUpdatingLocation()
         }
     }
     
@@ -93,8 +84,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             myLocation = location.coordinate
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
             mapView.setRegion(coordinateRegion, animated: true)
-            locationManager?.stopUpdatingLocation()
-            locationManager = nil
+            locationManager.stopUpdatingLocation()
         }
     }
     
