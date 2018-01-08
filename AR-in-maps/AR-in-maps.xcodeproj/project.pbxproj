@@ -43,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				89BE9EA82003E86900BA4DC1 /* AR-in-maps */,
+				89E3075120042217005FD5CC /* Supporting Files */,
 				89BE9EA72003E86900BA4DC1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,13 +62,20 @@
 				89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */,
 				89E3074D2003F49C005FD5CC /* MapViewController.swift */,
 				89BE9EAF2003E86900BA4DC1 /* Main.storyboard */,
+				89BE9EB72003E86900BA4DC1 /* Info.plist */,
+			);
+			path = "AR-in-maps";
+			sourceTree = "<group>";
+		};
+		89E3075120042217005FD5CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
 				89BE9EB22003E86900BA4DC1 /* Assets.xcassets */,
 				89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */,
 				89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */,
-				89BE9EB72003E86900BA4DC1 /* Info.plist */,
 			);
-			path = "AR-in-maps";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
