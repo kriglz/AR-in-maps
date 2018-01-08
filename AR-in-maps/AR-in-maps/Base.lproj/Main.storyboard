@@ -123,7 +123,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
-                        <outlet property="ARModeButton" destination="hkO-1R-W5y" id="U1x-wq-54G"/>
+                        <outlet property="ARModeButton" destination="hkO-1R-W5y" id="MyI-Ex-4Wl"/>
                         <outlet property="currentLocationButton" destination="Kfb-tY-oUZ" id="fVL-gM-5LR"/>
                         <outlet property="mapView" destination="Aoc-x2-mkl" id="Utj-FK-uuH"/>
                     </connections>

@@ -14,6 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager = CLLocationManager()
 
+    @IBOutlet weak var ARModeButton: UIButton!
     @IBOutlet weak var currentLocationButton: UIButton!
     
     override func viewDidLoad() {
@@ -26,34 +27,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
         locationManager.delegate = self
         
-        updateButtonShadow()
+        setup(currentLocationButton)
+        setup(ARModeButton)
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
-            currentLocationButton.isHidden = false
         } else {
-            let alert = UIAlertController(title: "Alert", message: "Failed to initialize GPS.\nPlease enable location access in Settings -> AR-in-maps -> Location", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-                switch action.style {
-                case .default:
-                    print("default")
-                case .cancel:
-                    print("cancel")
-                case .destructive:
-                    print("destructive")
-                }}))
-            self.present(alert, animated: true, completion: nil)
-            currentLocationButton.isHidden = true
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
         }
     }
     
-    private func updateButtonShadow(){
-        currentLocationButton.layer.cornerRadius = 30.0
-        currentLocationButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        currentLocationButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        currentLocationButton.layer.shadowOpacity = 1.0
-        currentLocationButton.layer.shadowRadius = 10.0
-        currentLocationButton.layer.masksToBounds = false
+    private func setup(_ button: UIButton){
+        button.layer.cornerRadius = 30.0
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10.0
+        button.layer.masksToBounds = false
     }
     
     @IBAction func updateCurrentLocation(_ sender: Any) {
@@ -79,6 +70,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     private var myLocation: CLLocationCoordinate2D?
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             myLocation = location.coordinate
@@ -89,6 +81,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to initialize GPS: ", error)
+
         let alert = UIAlertController(title: "Alert", message: "Failed to initialize GPS.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             switch action.style{
@@ -98,8 +92,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 print("cancel")
             case .destructive:
                 print("destructive")
-            }})
-        )
-        print("Failed to initialize GPS: ", error.localizedDescription)
+            }}))
+         self.present(alert, animated: true, completion: nil)
     }
 }
