@@ -13,9 +13,12 @@ import ARKit
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var mapButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup(mapButton)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -76,5 +79,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    private func setup(_ button: UIButton){
+        button.layer.cornerRadius = 30.0
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10.0
+        button.layer.masksToBounds = false
     }
 }

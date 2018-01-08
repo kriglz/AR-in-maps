@@ -16,19 +16,51 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ARViewController" customModule="AR_in_maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Wr5-8z-MWA">
+                    <view key="view" contentMode="scaleToFill" id="Hgg-ET-RFT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SH7-vi-Nvo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-Ww-hQB">
+                                <rect key="frame" x="299" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="gix-Aa-6oU"/>
+                                    <constraint firstAttribute="width" secondItem="fvg-Ww-hQB" secondAttribute="height" multiplier="1:1" id="tY7-f3-QEA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="32"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="pin">
+                                    <color key="titleColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateCurrentLocation:" destination="eoh-U1-HEO" eventType="touchUpInside" id="shS-nD-BR4"/>
+                                    <segue destination="eoh-U1-HEO" kind="showDetail" id="vQe-A1-iQL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fvg-Ww-hQB" secondAttribute="bottom" constant="20" symbolic="YES" id="6Rx-N3-1Ic"/>
+                            <constraint firstItem="SH7-vi-Nvo" firstAttribute="leading" secondItem="Hgg-ET-RFT" secondAttribute="leading" id="Q0m-Rl-WeV"/>
+                            <constraint firstItem="SH7-vi-Nvo" firstAttribute="bottom" secondItem="Nto-wd-0ed" secondAttribute="bottom" id="ZbO-ad-Dai"/>
+                            <constraint firstAttribute="trailing" secondItem="SH7-vi-Nvo" secondAttribute="trailing" id="aF7-VV-Xma"/>
+                            <constraint firstItem="fvg-Ww-hQB" firstAttribute="trailing" secondItem="Hgg-ET-RFT" secondAttribute="trailingMargin" id="egJ-xA-4Qt"/>
+                            <constraint firstItem="SH7-vi-Nvo" firstAttribute="top" secondItem="Hgg-ET-RFT" secondAttribute="top" id="pek-qa-TAI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nto-wd-0ed"/>
+                    </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="AOa-2O-bdw"/>
                     <connections>
-                        <outlet property="sceneView" destination="Wr5-8z-MWA" id="MpO-bP-njN"/>
+                        <outlet property="mapButton" destination="fvg-Ww-hQB" id="roV-rX-WZA"/>
+                        <outlet property="sceneView" destination="SH7-vi-Nvo" id="GLK-W0-Tu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="125"/>
+            <point key="canvasLocation" x="1444" y="124.58770614692655"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="uoK-Uo-ceC">
@@ -71,7 +103,7 @@
                                 </state>
                                 <connections>
                                     <action selector="updateCurrentLocation:" destination="eoh-U1-HEO" eventType="touchUpInside" id="224-gq-QDP"/>
-                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="rRq-Fz-gMW"/>
+                                    <segue destination="BV1-FR-VrT" kind="showDetail" identifier="AR" id="rRq-Fz-gMW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -90,11 +122,6 @@
                         <viewLayoutGuide key="safeArea" id="Ktb-AD-5tK"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="Iz0-vt-Q1F">
-                        <barButtonItem key="rightBarButtonItem" title="AR mode" id="HkK-Uq-iyv">
-                            <color key="tintColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="ARModeButton" destination="hkO-1R-W5y" id="U1x-wq-54G"/>
                         <outlet property="currentLocationButton" destination="Kfb-tY-oUZ" id="fVL-gM-5LR"/>
@@ -109,5 +136,6 @@
     <resources>
         <image name="AR" width="239" height="230"/>
         <image name="arrow" width="239" height="230"/>
+        <image name="pin" width="239" height="230"/>
     </resources>
 </document>
