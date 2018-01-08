@@ -13,6 +13,7 @@
 		89BE9EB12003E86900BA4DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EAF2003E86900BA4DC1 /* Main.storyboard */; };
 		89BE9EB32003E86900BA4DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EB22003E86900BA4DC1 /* Assets.xcassets */; };
 		89BE9EB62003E86900BA4DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */; };
+		89E3074E2003F49C005FD5CC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3074D2003F49C005FD5CC /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +25,7 @@
 		89BE9EB22003E86900BA4DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BE9EB52003E86900BA4DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89BE9EB72003E86900BA4DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89DD3A6A2003F093007EF394 /* art2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art2.scnassets; path = art.scnassets/art2.scnassets; sourceTree = "<group>"; };
+		89E3074D2003F49C005FD5CC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +58,13 @@
 		89BE9EA82003E86900BA4DC1 /* AR-in-maps */ = {
 			isa = PBXGroup;
 			children = (
-				89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */,
-				89DD3A6A2003F093007EF394 /* art2.scnassets */,
 				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
 				89BE9EAD2003E86900BA4DC1 /* ViewController.swift */,
+				89E3074D2003F49C005FD5CC /* MapViewController.swift */,
 				89BE9EAF2003E86900BA4DC1 /* Main.storyboard */,
 				89BE9EB22003E86900BA4DC1 /* Assets.xcassets */,
 				89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */,
+				89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */,
 				89BE9EB72003E86900BA4DC1 /* Info.plist */,
 			);
 			path = "AR-in-maps";
@@ -143,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BE9EAE2003E86900BA4DC1 /* ViewController.swift in Sources */,
+				89E3074E2003F49C005FD5CC /* MapViewController.swift in Sources */,
 				89BE9EAA2003E86900BA4DC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
