@@ -24,6 +24,7 @@
 		89BE9EB22003E86900BA4DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BE9EB52003E86900BA4DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89BE9EB72003E86900BA4DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89DD3A6A2003F093007EF394 /* art2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art2.scnassets; path = art.scnassets/art2.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */,
+				89DD3A6A2003F093007EF394 /* art2.scnassets */,
 				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
 				89BE9EAD2003E86900BA4DC1 /* ViewController.swift */,
 				89BE9EAF2003E86900BA4DC1 /* Main.storyboard */,
