@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		89BE9EAA2003E86900BA4DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */; };
 		89BE9EAC2003E86900BA4DC1 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EAB2003E86900BA4DC1 /* art.scnassets */; };
-		89BE9EAE2003E86900BA4DC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9EAD2003E86900BA4DC1 /* ViewController.swift */; };
+		89BE9EAE2003E86900BA4DC1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */; };
 		89BE9EB12003E86900BA4DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EAF2003E86900BA4DC1 /* Main.storyboard */; };
 		89BE9EB32003E86900BA4DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EB22003E86900BA4DC1 /* Assets.xcassets */; };
 		89BE9EB62003E86900BA4DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		89BE9EA62003E86900BA4DC1 /* AR-in-maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-in-maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BE9EAB2003E86900BA4DC1 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		89BE9EAD2003E86900BA4DC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		89BE9EB02003E86900BA4DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89BE9EB22003E86900BA4DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BE9EB52003E86900BA4DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,10 +58,10 @@
 		89BE9EA82003E86900BA4DC1 /* AR-in-maps */ = {
 			isa = PBXGroup;
 			children = (
-				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
-				89BE9EAD2003E86900BA4DC1 /* ViewController.swift */,
+				89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */,
 				89E3074D2003F49C005FD5CC /* MapViewController.swift */,
 				89BE9EAF2003E86900BA4DC1 /* Main.storyboard */,
+				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
 				89BE9EB22003E86900BA4DC1 /* Assets.xcassets */,
 				89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */,
 				89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */,
@@ -143,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BE9EAE2003E86900BA4DC1 /* ViewController.swift in Sources */,
+				89BE9EAE2003E86900BA4DC1 /* ARViewController.swift in Sources */,
 				89E3074E2003F49C005FD5CC /* MapViewController.swift in Sources */,
 				89BE9EAA2003E86900BA4DC1 /* AppDelegate.swift in Sources */,
 			);

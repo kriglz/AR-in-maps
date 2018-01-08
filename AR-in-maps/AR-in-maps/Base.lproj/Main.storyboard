@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +15,7 @@
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="AR_in_maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="ARViewController" customModule="AR_in_maps" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,12 +40,30 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Aoc-x2-mkl">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-tY-oUZ">
+                                <rect key="frame" x="299" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3V6-RK-bm3"/>
+                                    <constraint firstAttribute="width" secondItem="Kfb-tY-oUZ" secondAttribute="height" multiplier="1:1" id="x1n-0m-Cct"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="45"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="arrow">
+                                    <color key="titleColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateCurrentLocation:" destination="eoh-U1-HEO" eventType="touchUpInside" id="iJV-mf-cDC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Kfb-tY-oUZ" firstAttribute="trailing" secondItem="via-ts-hZa" secondAttribute="trailingMargin" id="BW7-YL-jG0"/>
                             <constraint firstItem="Aoc-x2-mkl" firstAttribute="leading" secondItem="via-ts-hZa" secondAttribute="leading" id="D6S-Ks-QEN"/>
                             <constraint firstItem="Aoc-x2-mkl" firstAttribute="bottom" secondItem="Ktb-AD-5tK" secondAttribute="bottom" id="FnW-9V-beq"/>
                             <constraint firstItem="Aoc-x2-mkl" firstAttribute="top" secondItem="Ktb-AD-5tK" secondAttribute="top" id="cvN-Iu-d2D"/>
+                            <constraint firstAttribute="bottom" secondItem="Kfb-tY-oUZ" secondAttribute="bottom" constant="20" symbolic="YES" id="l5I-m1-zGA"/>
                             <constraint firstAttribute="trailing" secondItem="Aoc-x2-mkl" secondAttribute="trailing" id="wkb-t6-rEI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ktb-AD-5tK"/>
@@ -56,6 +76,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="currentLocationButton" destination="Kfb-tY-oUZ" id="fVL-gM-5LR"/>
                         <outlet property="mapView" destination="Aoc-x2-mkl" id="Utj-FK-uuH"/>
                     </connections>
                 </viewController>
@@ -82,4 +103,7 @@
             <point key="canvasLocation" x="-322" y="125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow" width="239" height="230"/>
+    </resources>
 </document>
