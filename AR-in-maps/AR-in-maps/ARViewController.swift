@@ -57,12 +57,16 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         super.viewDidAppear(true)
         
         // Create a new scene
-        let scene = SCNScene(named: "typhoon.DAE")//modelFileName)
-        
+        if let scene = SCNScene(named: "art.scnassets/typhoon.scn")//modelFileName)
+        {
+            print("scene loaded")
+            
         // Set the scene to the view
-        if let scene = scene {
             sceneView.scene = scene
+        } else {
+            print("did not")
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

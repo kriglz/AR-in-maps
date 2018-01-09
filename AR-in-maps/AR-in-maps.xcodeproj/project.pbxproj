@@ -7,23 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		897F8CB220047CCE008AD4DF /* shoulder.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA120047CCD008AD4DF /* shoulder.tga */; };
-		897F8CB320047CCE008AD4DF /* bicep.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA220047CCD008AD4DF /* bicep.tga */; };
-		897F8CB420047CCE008AD4DF /* Read_Me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA320047CCD008AD4DF /* Read_Me.txt */; };
-		897F8CB520047CCE008AD4DF /* typhoon.DAE in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA420047CCD008AD4DF /* typhoon.DAE */; };
-		897F8CB620047CCE008AD4DF /* typhoon.obj in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA520047CCD008AD4DF /* typhoon.obj */; };
-		897F8CB720047CCE008AD4DF /* foot.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA620047CCD008AD4DF /* foot.tga */; };
-		897F8CB820047CCE008AD4DF /* calf.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA720047CCE008AD4DF /* calf.tga */; };
-		897F8CB920047CCE008AD4DF /* hand_fist.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA820047CCE008AD4DF /* hand_fist.tga */; };
-		897F8CBA20047CCE008AD4DF /* chest.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CA920047CCE008AD4DF /* chest.tga */; };
-		897F8CBB20047CCE008AD4DF /* head.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAA20047CCE008AD4DF /* head.tga */; };
-		897F8CBC20047CCE008AD4DF /* pelvis.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAB20047CCE008AD4DF /* pelvis.tga */; };
-		897F8CBD20047CCE008AD4DF /* thigh.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAC20047CCE008AD4DF /* thigh.tga */; };
-		897F8CBE20047CCE008AD4DF /* typhoon.FBX in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAD20047CCE008AD4DF /* typhoon.FBX */; };
-		897F8CBF20047CCE008AD4DF /* typhoon.max in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAE20047CCE008AD4DF /* typhoon.max */; };
-		897F8CC020047CCE008AD4DF /* wrist.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CAF20047CCE008AD4DF /* wrist.tga */; };
-		897F8CC120047CCE008AD4DF /* mid.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CB020047CCE008AD4DF /* mid.tga */; };
-		897F8CC220047CCE008AD4DF /* neck.tga in Resources */ = {isa = PBXBuildFile; fileRef = 897F8CB120047CCE008AD4DF /* neck.tga */; };
 		89BE9EAA2003E86900BA4DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */; };
 		89BE9EAC2003E86900BA4DC1 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9EAB2003E86900BA4DC1 /* art.scnassets */; };
 		89BE9EAE2003E86900BA4DC1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */; };
@@ -34,24 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		897F8CA120047CCD008AD4DF /* shoulder.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoulder.tga; sourceTree = "<group>"; };
-		897F8CA220047CCD008AD4DF /* bicep.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = bicep.tga; sourceTree = "<group>"; };
-		897F8CA320047CCD008AD4DF /* Read_Me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Read_Me.txt; sourceTree = "<group>"; };
-		897F8CA420047CCD008AD4DF /* typhoon.DAE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = typhoon.DAE; sourceTree = "<group>"; };
-		897F8CA520047CCD008AD4DF /* typhoon.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = typhoon.obj; sourceTree = "<group>"; };
-		897F8CA620047CCD008AD4DF /* foot.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = foot.tga; sourceTree = "<group>"; };
-		897F8CA720047CCE008AD4DF /* calf.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = calf.tga; sourceTree = "<group>"; };
-		897F8CA820047CCE008AD4DF /* hand_fist.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = hand_fist.tga; sourceTree = "<group>"; };
-		897F8CA920047CCE008AD4DF /* chest.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = chest.tga; sourceTree = "<group>"; };
-		897F8CAA20047CCE008AD4DF /* head.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = head.tga; sourceTree = "<group>"; };
-		897F8CAB20047CCE008AD4DF /* pelvis.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pelvis.tga; sourceTree = "<group>"; };
-		897F8CAC20047CCE008AD4DF /* thigh.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = thigh.tga; sourceTree = "<group>"; };
-		897F8CAD20047CCE008AD4DF /* typhoon.FBX */ = {isa = PBXFileReference; lastKnownFileType = file; path = typhoon.FBX; sourceTree = "<group>"; };
-		897F8CAE20047CCE008AD4DF /* typhoon.max */ = {isa = PBXFileReference; lastKnownFileType = file; path = typhoon.max; sourceTree = "<group>"; };
-		897F8CAF20047CCE008AD4DF /* wrist.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrist.tga; sourceTree = "<group>"; };
-		897F8CB020047CCE008AD4DF /* mid.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = mid.tga; sourceTree = "<group>"; };
-		897F8CB120047CCE008AD4DF /* neck.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = neck.tga; sourceTree = "<group>"; };
-		897F8CC320047E36008AD4DF /* art2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art2.scnassets; path = "/Users/kriglz/Desktop/AR-in-maps/AR-in-maps/Supporting Files/art2.scnassets"; sourceTree = "<absolute>"; };
 		89BE9EA62003E86900BA4DC1 /* AR-in-maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-in-maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BE9EA92003E86900BA4DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BE9EAB2003E86900BA4DC1 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -74,31 +39,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		897F8CA020047C9C008AD4DF /* Typhoon */ = {
-			isa = PBXGroup;
-			children = (
-				897F8CA220047CCD008AD4DF /* bicep.tga */,
-				897F8CA720047CCE008AD4DF /* calf.tga */,
-				897F8CA920047CCE008AD4DF /* chest.tga */,
-				897F8CA620047CCD008AD4DF /* foot.tga */,
-				897F8CA820047CCE008AD4DF /* hand_fist.tga */,
-				897F8CAA20047CCE008AD4DF /* head.tga */,
-				897F8CB020047CCE008AD4DF /* mid.tga */,
-				897F8CB120047CCE008AD4DF /* neck.tga */,
-				897F8CAB20047CCE008AD4DF /* pelvis.tga */,
-				897F8CA320047CCD008AD4DF /* Read_Me.txt */,
-				897F8CA120047CCD008AD4DF /* shoulder.tga */,
-				897F8CAC20047CCE008AD4DF /* thigh.tga */,
-				897F8CA420047CCD008AD4DF /* typhoon.DAE */,
-				897F8CAD20047CCE008AD4DF /* typhoon.FBX */,
-				897F8CAE20047CCE008AD4DF /* typhoon.max */,
-				897F8CA520047CCD008AD4DF /* typhoon.obj */,
-				897F8CAF20047CCE008AD4DF /* wrist.tga */,
-			);
-			name = Typhoon;
-			path = "../Supporting Files/art2.scnassets/Typhoon";
-			sourceTree = "<group>";
-		};
 		89BE9E9D2003E86800BA4DC1 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +59,6 @@
 		89BE9EA82003E86900BA4DC1 /* AR-in-maps */ = {
 			isa = PBXGroup;
 			children = (
-				897F8CA020047C9C008AD4DF /* Typhoon */,
 				89BE9EAD2003E86900BA4DC1 /* ARViewController.swift */,
 				89E3074D2003F49C005FD5CC /* MapViewController.swift */,
 				89BE9EAF2003E86900BA4DC1 /* Main.storyboard */,
@@ -131,7 +70,6 @@
 		89E3075120042217005FD5CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				897F8CC320047E36008AD4DF /* art2.scnassets */,
 				89BE9EAB2003E86900BA4DC1 /* art.scnassets */,
 				89BE9EB22003E86900BA4DC1 /* Assets.xcassets */,
 				89BE9EB42003E86900BA4DC1 /* LaunchScreen.storyboard */,
@@ -199,27 +137,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				897F8CC220047CCE008AD4DF /* neck.tga in Resources */,
-				897F8CBC20047CCE008AD4DF /* pelvis.tga in Resources */,
-				897F8CBA20047CCE008AD4DF /* chest.tga in Resources */,
-				897F8CB820047CCE008AD4DF /* calf.tga in Resources */,
-				897F8CBE20047CCE008AD4DF /* typhoon.FBX in Resources */,
-				897F8CB620047CCE008AD4DF /* typhoon.obj in Resources */,
 				89BE9EAC2003E86900BA4DC1 /* art.scnassets in Resources */,
-				897F8CBF20047CCE008AD4DF /* typhoon.max in Resources */,
-				897F8CB920047CCE008AD4DF /* hand_fist.tga in Resources */,
-				897F8CB220047CCE008AD4DF /* shoulder.tga in Resources */,
-				897F8CBD20047CCE008AD4DF /* thigh.tga in Resources */,
-				897F8CB320047CCE008AD4DF /* bicep.tga in Resources */,
 				89BE9EB62003E86900BA4DC1 /* LaunchScreen.storyboard in Resources */,
-				897F8CB520047CCE008AD4DF /* typhoon.DAE in Resources */,
 				89BE9EB32003E86900BA4DC1 /* Assets.xcassets in Resources */,
 				89BE9EB12003E86900BA4DC1 /* Main.storyboard in Resources */,
-				897F8CC020047CCE008AD4DF /* wrist.tga in Resources */,
-				897F8CB720047CCE008AD4DF /* foot.tga in Resources */,
-				897F8CBB20047CCE008AD4DF /* head.tga in Resources */,
-				897F8CB420047CCE008AD4DF /* Read_Me.txt in Resources */,
-				897F8CC120047CCE008AD4DF /* mid.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
