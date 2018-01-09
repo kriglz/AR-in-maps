@@ -108,7 +108,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ARViewController, segue.identifier == "AR" {
-            destinationController.dropPinPoint = dropPin.coordinate
+//            destinationController.model = ""
         }
     }
 }
