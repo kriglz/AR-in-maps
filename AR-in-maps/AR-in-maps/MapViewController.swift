@@ -21,7 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     private var allPins = [MKPointAnnotation]()
     private var selectedPin: String?
     private let pinAnnotationLocationCoefficients = [(-0.002, 0.001), (0.001, -0.002), (0.0005, 0.0007)]
-    private let pinAnnotation = ["SHIP", "SHIP", "SHIP"]
+    private let pinAnnotation = ["VASE.dae", "SHIP.scn", "SNOWMAN.dae"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let pinPoint = mapView.convert(pin.coordinate, toPointTo: self.view)
             let pinFrame = CGRect(x: pinPoint.x - 25.0, y: pinPoint.y - 50, width: 50.0, height: 50.0)
             if pinFrame.contains(tapPoint) {
-                selectedPin = pin.title
+                selectedPin = pin.subtitle
                 return
             } else {
                 selectedPin = nil
@@ -150,7 +150,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             if let myLocation = myLocation {
                 pin.coordinate.latitude = myLocation.latitude + pinAnnotationLocationCoefficients[index].0
                 pin.coordinate.longitude = myLocation.longitude + pinAnnotationLocationCoefficients[index].1
-                pin.title = pinAnnotation[index]
+                pin.subtitle = pinAnnotation[index]
                 allPins.append(pin)
                 mapView.addAnnotation(pin)
             }

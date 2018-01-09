@@ -18,7 +18,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     public var model: String = ""
     
-    private lazy var modelFileName: String = "art.scnassets/" + model + ".scn"
+    private lazy var modelFileName: String = "art.scnassets/" + model
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +56,15 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        
         // Create a new scene
-        if let scene = SCNScene(named: "art.scnassets/typhoon.scn")//modelFileName)
+        if let scene = SCNScene(named: modelFileName)
         {
             print("scene loaded")
             
         // Set the scene to the view
             sceneView.scene = scene
-        } else {
-            print("did not")
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
