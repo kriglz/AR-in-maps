@@ -56,12 +56,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        
         // Create a new scene
         if let scene = SCNScene(named: modelFileName)
         {
-            print("scene loaded")
-            
         // Set the scene to the view
             sceneView.scene = scene
         }
