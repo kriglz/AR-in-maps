@@ -58,7 +58,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="mapButton" destination="fvg-Ww-hQB" id="roV-rX-WZA"/>
-                        <outlet property="sceneView" destination="SH7-vi-Nvo" id="Gjl-85-HWH"/>
+                        <outlet property="sceneView" destination="SH7-vi-Nvo" id="GLK-W0-Tu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

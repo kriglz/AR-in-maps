@@ -20,7 +20,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     private var allPins = [MKPointAnnotation]()
     private var selectedPin: String?
-
+    private let pinAnnotationLocationCoefficients = [(-0.002, 0.001), (0.001, -0.002), (0.0005, 0.0007)]
+    private let pinAnnotation = ["SHIP", "SHIP", "SHIP"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -144,14 +146,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let pin = MKPointAnnotation()
             
             if let myLocation = myLocation {
-                pin.coordinate.latitude = myLocation.latitude + Double(drand48())/150
-                pin.coordinate.longitude = myLocation.longitude - Double(drand48())/200
+                pin.coordinate.latitude = myLocation.latitude + pinAnnotationLocationCoefficients[index].0
+                pin.coordinate.longitude = myLocation.longitude + pinAnnotationLocationCoefficients[index].1
                 pin.title = pinAnnotation[index]
                 allPins.append(pin)
                 mapView.addAnnotation(pin)
             }
         }
     }
-    
-    private let pinAnnotation = ["SHIP", "CAT", "DOG"]
 }
