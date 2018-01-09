@@ -16,7 +16,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var mapButton: UIButton!
     
-    public var model: String = "art.scnassets/ship.scn"
+    public var model: String = ""
+    
+    private lazy var modelFileName: String = "art.scnassets/" + model + ".scn"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         super.viewDidAppear(true)
         
         // Create a new scene
-        let scene = SCNScene(named: model)
+        let scene = SCNScene(named: modelFileName)
         
         // Set the scene to the view
         if let scene = scene {

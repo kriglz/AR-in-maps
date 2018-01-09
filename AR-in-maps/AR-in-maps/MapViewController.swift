@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     private var locationManager: CLLocationManager = CLLocationManager()
@@ -19,7 +19,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var currentLocationButton: UIButton!
     
     private var allPins = [MKPointAnnotation]()
-    
+    private var selectedPin: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,9 +41,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
-//        let tapHandler = #selector(handleTapGesture(recognizer:))
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
-//        self.view.addGestureRecognizer(tapGestureRecognizer)
+        let tapHandler = #selector(handleTapGesture(recognizer:))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func setup(_ button: UIButton){
@@ -54,12 +55,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         button.layer.masksToBounds = false
     }
     
-//    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
-//        let tapPoint = recognizer.location(in: self.view)
-//        let tapPointInMap = mapView.convert(tapPoint, toCoordinateFrom: self.view)
-//        dropPin.coordinate = tapPointInMap
-//        mapView.addAnnotation(dropPin)
-//    }
+    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
+        let tapPoint = recognizer.location(in: self.view)
+        
+        for pin in allPins {
+            let pinPoint = mapView.convert(pin.coordinate, toPointTo: self.view)
+            let pinFrame = CGRect(x: pinPoint.x - 20.0, y: pinPoint.y - 20.0, width: 40.0, height: 40.0)
+            if pinFrame.contains(tapPoint) {
+                selectedPin = pin.title
+                
+                print("\n\npin selected", pin.title," \n\n")
+                
+            } 
+        }
+    }
     
     @IBAction func updateCurrentLocation(_ sender: Any){
         locationManager.startUpdatingLocation()
@@ -88,7 +97,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.setRegion(coordinateRegion, animated: true)
             locationManager.stopUpdatingLocation()
             
-            print(allPins)
             if allPins.isEmpty {
                 dropARPins()
             }
@@ -113,22 +121,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ARViewController, segue.identifier == "AR" {
-//            destinationController.model = ""
+            if let selectedPin = selectedPin {
+                destinationController.model = selectedPin
+            } else {
+                let alert = UIAlertController(title: "Please select the pin.", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+                    case .cancel:
+                        print("cancel")
+                    case .destructive:
+                        print("destructive")
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
     private func dropARPins(){
-        for _ in 0...3 {
+        for index in 0...2 {
             let pin = MKPointAnnotation()
             
             if let myLocation = myLocation {
-                
-                pin.coordinate.latitude = myLocation.latitude + Double(drand48())/200
+                pin.coordinate.latitude = myLocation.latitude + Double(drand48())/150
                 pin.coordinate.longitude = myLocation.longitude - Double(drand48())/200
-                
+                pin.title = pinAnnotation[index]
                 allPins.append(pin)
                 mapView.addAnnotation(pin)
             }
         }
     }
+    
+    private let pinAnnotation = ["SHIP", "CAT", "DOG"]
 }
