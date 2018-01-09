@@ -12,10 +12,13 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    var locationManager: CLLocationManager = CLLocationManager()
+    private var locationManager: CLLocationManager = CLLocationManager()
+    private var myLocation: CLLocationCoordinate2D?
 
     @IBOutlet weak var ARModeButton: UIButton!
     @IBOutlet weak var currentLocationButton: UIButton!
+    
+    let dropPin = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
         }
+        
+        let tapHandler = #selector(handleTapGesture(recognizer:))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func setup(_ button: UIButton){
@@ -47,10 +54,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         button.layer.masksToBounds = false
     }
     
-    @IBAction func updateCurrentLocation(_ sender: Any) {
-        locationManager.startUpdatingLocation()
+    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
+        let tapPoint = recognizer.location(in: self.view)
+        let tapPointInMap = mapView.convert(tapPoint, toCoordinateFrom: self.view)
+        dropPin.coordinate = tapPointInMap
+        mapView.addAnnotation(dropPin)
     }
     
+    @IBAction func updateCurrentLocation(_ sender: Any){
+        locationManager.startUpdatingLocation()
+    }
     
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -67,9 +80,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
-    
-    private var myLocation: CLLocationCoordinate2D?
-    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -94,5 +104,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 print("destructive")
             }}))
          self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? ARViewController, segue.identifier == "AR" {
+            destinationController.dropPinPoint = dropPin.coordinate
+        }
     }
 }

@@ -9,11 +9,14 @@
 import UIKit
 import SceneKit
 import ARKit
+import MapKit
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var mapButton: UIButton!
+    
+    public var dropPinPoint: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
