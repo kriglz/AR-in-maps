@@ -21,7 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     private var allPins = [MKPointAnnotation]()
     private var selectedPin: String?
     private let pinAnnotationLocationCoefficients = [(-0.002, 0.001), (0.001, -0.002), (0.0005, 0.0007)]
-    private let pinAnnotation = ["SHIP1", "SHIP2", "SHIP3"]
+    private let pinAnnotation = ["SHIP", "SHIP", "SHIP"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

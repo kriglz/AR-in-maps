@@ -57,7 +57,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         super.viewDidAppear(true)
         
         // Create a new scene
-        let scene = SCNScene(named: modelFileName)
+        let scene = SCNScene(named: "typhoon.DAE")//modelFileName)
         
         // Set the scene to the view
         if let scene = scene {
