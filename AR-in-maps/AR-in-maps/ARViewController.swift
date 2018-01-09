@@ -20,6 +20,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     private lazy var modelFileName: String = "art.scnassets/" + model
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +41,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         // Set the view's delegate
         sceneView.delegate = self
-        
-     
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,11 +72,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
     
     

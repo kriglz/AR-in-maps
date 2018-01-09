@@ -23,6 +23,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     private let pinAnnotationLocationCoefficients = [(-0.002, 0.001), (0.001, -0.002), (0.0005, 0.0007)]
     private let pinAnnotation = ["VASE.dae", "SHIP.scn", "SNOWMAN.dae"]
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,36 +49,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }
+
     
-    private func setup(_ button: UIButton){
-        button.layer.cornerRadius = 30.0
-        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowRadius = 10.0
-        button.layer.masksToBounds = false
-    }
-    
-    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
-        let tapPoint = recognizer.location(in: self.view)
-        
-        guard !ARModeButton.frame.contains(tapPoint), !currentLocationButton.frame.contains(tapPoint) else { return }
-        
-        for pin in allPins {
-            let pinPoint = mapView.convert(pin.coordinate, toPointTo: self.view)
-            let pinFrame = CGRect(x: pinPoint.x - 25.0, y: pinPoint.y - 50, width: 50.0, height: 50.0)
-            if pinFrame.contains(tapPoint) {
-                selectedPin = pin.subtitle
-                return
-            } else {
-                selectedPin = nil
-            }
-        }
-    }
-    
-    @IBAction func updateCurrentLocation(_ sender: Any){
-        locationManager.startUpdatingLocation()
-    }
     
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -123,6 +97,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
          self.present(alert, animated: true, completion: nil)
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ARViewController, segue.identifier == "AR" {
             if let selectedPin = selectedPin {
@@ -141,6 +117,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    
+    
+    private func setup(_ button: UIButton){
+        button.layer.cornerRadius = 30.0
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10.0
+        button.layer.masksToBounds = false
+    }
+    
+    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
+        let tapPoint = recognizer.location(in: self.view)
+        
+        guard !ARModeButton.frame.contains(tapPoint), !currentLocationButton.frame.contains(tapPoint) else { return }
+        
+        for pin in allPins {
+            let pinPoint = mapView.convert(pin.coordinate, toPointTo: self.view)
+            let pinFrame = CGRect(x: pinPoint.x - 25.0, y: pinPoint.y - 50, width: 50.0, height: 50.0)
+            if pinFrame.contains(tapPoint) {
+                selectedPin = pin.subtitle
+                return
+            } else {
+                selectedPin = nil
+            }
+        }
+    }
+    
+    @IBAction func updateCurrentLocation(_ sender: Any){
+        locationManager.startUpdatingLocation()
     }
     
     private func dropARPins(){
