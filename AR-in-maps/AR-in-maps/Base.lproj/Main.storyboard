@@ -40,15 +40,41 @@
                                     <segue destination="eoh-U1-HEO" kind="showDetail" id="vQe-A1-iQL"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-4q-5uw">
+                                <rect key="frame" x="16" y="42" width="343" height="32"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OKH-Mm-dFw">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk0-v1-waG">
+                                            <rect key="frame" x="171.5" y="16" width="0.0" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zk0-v1-waG" firstAttribute="centerX" secondItem="OKH-Mm-dFw" secondAttribute="centerX" id="UO4-ea-bUj"/>
+                                        <constraint firstItem="Zk0-v1-waG" firstAttribute="centerY" secondItem="OKH-Mm-dFw" secondAttribute="centerY" id="srv-4c-2Gn"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="aND-Ot-Kbq"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fvg-Ww-hQB" secondAttribute="bottom" constant="20" symbolic="YES" id="6Rx-N3-1Ic"/>
+                            <constraint firstItem="XyU-4q-5uw" firstAttribute="top" secondItem="Nto-wd-0ed" secondAttribute="top" constant="22" id="6Yq-oz-pDs"/>
+                            <constraint firstItem="XyU-4q-5uw" firstAttribute="leading" secondItem="Hgg-ET-RFT" secondAttribute="leadingMargin" id="EpA-po-nub"/>
                             <constraint firstItem="SH7-vi-Nvo" firstAttribute="leading" secondItem="Hgg-ET-RFT" secondAttribute="leading" id="Q0m-Rl-WeV"/>
                             <constraint firstItem="SH7-vi-Nvo" firstAttribute="bottom" secondItem="Nto-wd-0ed" secondAttribute="bottom" id="ZbO-ad-Dai"/>
                             <constraint firstAttribute="trailing" secondItem="SH7-vi-Nvo" secondAttribute="trailing" id="aF7-VV-Xma"/>
                             <constraint firstItem="fvg-Ww-hQB" firstAttribute="trailing" secondItem="Hgg-ET-RFT" secondAttribute="trailingMargin" id="egJ-xA-4Qt"/>
                             <constraint firstItem="SH7-vi-Nvo" firstAttribute="top" secondItem="Hgg-ET-RFT" secondAttribute="top" id="pek-qa-TAI"/>
+                            <constraint firstItem="XyU-4q-5uw" firstAttribute="trailing" secondItem="fvg-Ww-hQB" secondAttribute="trailing" id="uuW-zZ-u6L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nto-wd-0ed"/>
                     </view>
@@ -56,6 +82,8 @@
                     <connections>
                         <outlet property="mapButton" destination="fvg-Ww-hQB" id="roV-rX-WZA"/>
                         <outlet property="sceneView" destination="SH7-vi-Nvo" id="GLK-W0-Tu8"/>
+                        <outlet property="sessionInfoLabel" destination="Zk0-v1-waG" id="VfX-pJ-t6d"/>
+                        <outlet property="sessionInfoView" destination="OKH-Mm-dFw" id="SvF-zN-MHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -103,7 +131,7 @@
                                 </state>
                                 <connections>
                                     <action selector="updateCurrentLocation:" destination="eoh-U1-HEO" eventType="touchUpInside" id="224-gq-QDP"/>
-                                    <segue destination="BV1-FR-VrT" kind="showDetail" identifier="AR" id="rRq-Fz-gMW"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="AR" action="showDetailViewController:sender:" id="rRq-Fz-gMW"/>
                                 </connections>
                             </button>
                         </subviews>
