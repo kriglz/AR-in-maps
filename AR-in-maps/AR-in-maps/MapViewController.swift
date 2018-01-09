@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     private var locationManager: CLLocationManager = CLLocationManager()
@@ -60,15 +60,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
         let tapPoint = recognizer.location(in: self.view)
         
+        guard !ARModeButton.frame.contains(tapPoint), !currentLocationButton.frame.contains(tapPoint) else { return }
+        
         for pin in allPins {
             let pinPoint = mapView.convert(pin.coordinate, toPointTo: self.view)
-            let pinFrame = CGRect(x: pinPoint.x - 20.0, y: pinPoint.y - 20.0, width: 40.0, height: 40.0)
+            let pinFrame = CGRect(x: pinPoint.x - 25.0, y: pinPoint.y - 50, width: 50.0, height: 50.0)
             if pinFrame.contains(tapPoint) {
                 selectedPin = pin.title
-                
-                print("\n\npin selected", pin.title," \n\n")
-                
-            } 
+            } else {
+                selectedPin = nil
+            }
         }
     }
     
