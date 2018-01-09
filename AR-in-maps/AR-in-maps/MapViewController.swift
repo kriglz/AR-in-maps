@@ -18,7 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var ARModeButton: UIButton!
     @IBOutlet weak var currentLocationButton: UIButton!
     
-    let dropPin = MKPointAnnotation()
+    private var allPins = [MKPointAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +40,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
-        let tapHandler = #selector(handleTapGesture(recognizer:))
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
-        self.view.addGestureRecognizer(tapGestureRecognizer)
+//        let tapHandler = #selector(handleTapGesture(recognizer:))
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
+//        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func setup(_ button: UIButton){
@@ -54,12 +54,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         button.layer.masksToBounds = false
     }
     
-    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
-        let tapPoint = recognizer.location(in: self.view)
-        let tapPointInMap = mapView.convert(tapPoint, toCoordinateFrom: self.view)
-        dropPin.coordinate = tapPointInMap
-        mapView.addAnnotation(dropPin)
-    }
+//    @objc func handleTapGesture(recognizer: UITapGestureRecognizer){
+//        let tapPoint = recognizer.location(in: self.view)
+//        let tapPointInMap = mapView.convert(tapPoint, toCoordinateFrom: self.view)
+//        dropPin.coordinate = tapPointInMap
+//        mapView.addAnnotation(dropPin)
+//    }
     
     @IBAction func updateCurrentLocation(_ sender: Any){
         locationManager.startUpdatingLocation()
@@ -87,6 +87,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
             mapView.setRegion(coordinateRegion, animated: true)
             locationManager.stopUpdatingLocation()
+            
+            print(allPins)
+            if allPins.isEmpty {
+                dropARPins()
+            }
         }
     }
     
@@ -109,6 +114,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ARViewController, segue.identifier == "AR" {
 //            destinationController.model = ""
+        }
+    }
+    
+    private func dropARPins(){
+        for _ in 0...3 {
+            let pin = MKPointAnnotation()
+            
+            if let myLocation = myLocation {
+                
+                pin.coordinate.latitude = myLocation.latitude + Double(drand48())/200
+                pin.coordinate.longitude = myLocation.longitude - Double(drand48())/200
+                
+                allPins.append(pin)
+                mapView.addAnnotation(pin)
+            }
         }
     }
 }
